@@ -1,3 +1,4 @@
+//BELOW are my APIS//
 export const fetchProductCatalog = () => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -13,4 +14,32 @@ export const fetchProductCatalog = () => {
         }, 1000);
     });
 };
-//# sourceMappingURL=apiSimulator.js.map
+export const fetchProductReviews = (productId) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (Math.random() < 0.8) {
+                resolve([
+                    { productId: 101, rating: 5, productReview: " It was a great product" }
+                ]);
+            }
+            else {
+                reject(`Failed to fetch reviews for productID ${productId}`);
+            }
+        }, 1500);
+    });
+};
+export const fetchSalesReport = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (Math.random() < 0.8) {
+                resolve([
+                    { totalSales: 2000, unitsSold: 50, averagePrice: 40 },
+                    { totalSales: 3000, unitsSold: 50, averagePrice: 60 },
+                ]);
+            }
+            else {
+                reject("Failed to fetch sales report.");
+            }
+        }, 1000);
+    });
+};

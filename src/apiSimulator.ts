@@ -10,6 +10,12 @@ interface ProductReview {
     productReview: string;
 }
 
+interface SalesReport {
+    totalSales: number;
+    unitsSold: number;
+    averagePrice: number;
+}
+
 //BELOW are my APIS//
 
 export const fetchProductCatalog = (): Promise<Product[]> => { 
@@ -42,3 +48,19 @@ export const fetchProductReviews = (productId: number): Promise<ProductReview[]>
 
     });
 };
+
+export const fetchSalesReport = (): Promise<SalesReport[]> => { 
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (Math.random() < 0.8) {
+                resolve([
+                    { totalSales: 2000, unitsSold:50, averagePrice:40},
+                    { totalSales: 3000, unitsSold:50, averagePrice:60},
+                ]);
+            } else {
+                reject("Failed to fetch sales report.");
+            }
+        }, 1000);
+    });
+};
+

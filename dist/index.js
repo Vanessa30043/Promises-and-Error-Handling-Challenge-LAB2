@@ -6,4 +6,3 @@ import { fetchProductCatalog } from "./apiSimulator.js";
 fetchProductCatalog()
     .then((products) => console.log("Products:", products))
     .catch((err) => console.error("error:", err));
-//# sourceMappingURL=index.js.map
